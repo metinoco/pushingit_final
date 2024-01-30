@@ -1,0 +1,14 @@
+{
+    "producto1": {
+        "id": "add-to-cart-1000",
+        "name": "Buzo Negro",
+        "price": 23.76,
+        "quantity": 2
+    },
+    "producto2": {
+        "id": "add-to-cart-1005",
+        "name": "Medias Negras",
+        "price": 5.43,
+        "quantity": 1
+    }
+}
