@@ -8,8 +8,9 @@ import { ShoppingCartPage } from "../support/Pages/shoppingCartPage";
 describe ('Pre-entrega', ()=> {
     //generar una instancia de la clase loginPage
     const loginPage = new LoginPage()
-    //generar una instancia de la clase onlineShopPage
+    //generar una instancia de la clase productsPage
     const productsPage = new ProductsPage()
+    //generar una instancia de la clase shoppingCartPage
     const shoppingCartPage = new ShoppingCartPage()
     // let datos ;
     let products;
@@ -30,7 +31,7 @@ describe ('Pre-entrega', ()=> {
     });
 
     it('Unico test', () => {
-        // cy.get("#onlineshoplink").click();
+        
         productsPage.clickButtonOnlineShop();
         cy.wait(2000);
         

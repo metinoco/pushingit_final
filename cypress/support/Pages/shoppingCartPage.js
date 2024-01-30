@@ -16,7 +16,7 @@ export class ShoppingCartPage {
         this.productPrice = '//*[@id="unitPrice"]'; 
         this.productQuantity = '//*[@id="productAmount"]'; 
         this.totalPrice = '//*[@id="totalPrice"]'; 
-        // this.showTotalPrice = '.css-n1d5pa > .chakra-button';
+        
     };
 
     getProduct(name) {
