@@ -48,12 +48,12 @@ describe ('Pre-entrega', ()=> {
         shoppingCartPage.getProduct(products.producto2.name).should('include.text', products.producto2.name);
 
         // //Verificar cantidad
-        shoppingCartPage.getQuantityProduct(products.producto1.quantity).should('include.text', products.producto1.quantity);
-        shoppingCartPage.getQuantityProduct(products.producto2.quantity).should('include.text', products.producto2.quantity);
+        shoppingCartPage.getQuantityProduct(products.producto1.name).should('include.text', products.producto1.quantity);
+        shoppingCartPage.getQuantityProduct(products.producto2.name).should('include.text', products.producto2.quantity);
 
         //Verificar precios
-        shoppingCartPage.getProductPrice(products.producto1.price).should('include.text', products.producto1.price);
-        shoppingCartPage.getProductPrice(products.producto2.price).should('include.text', products.producto2.price);
+        shoppingCartPage.getProductPrice(products.producto1.name).should('include.text', products.producto1.price);
+        shoppingCartPage.getProductPrice(products.producto2.name).should('include.text', products.producto2.price);
         
         //Verificar precio total de cada producto
         shoppingCartPage.getTotalPriceProduct(products.producto1.price, products.producto1.quantity).should('include.text', products.producto1.price*products.producto1.quantity)

@@ -28,15 +28,18 @@ export class ShoppingCartPage {
     }
 
     getProductPrice (productPrice) {
-        return cy.xpath(this.productPrice).contains('p#unitPrice', productPrice);
+        // return cy.xpath(this.productPrice).contains('p#unitPrice', productPrice);
+        return cy.contains(productPrice).siblings("p#unitPrice");
     }
 
     getQuantityProduct (productQuantity) {
-        return cy.xpath(this.productQuantity).contains('p#productAmount', productQuantity);
+        // return cy.xpath(this.productQuantity).contains('p#productAmount', productQuantity);
+        return cy.contains(productQuantity).siblings("p#productAmount");
     }
 
-    getTotalPriceProduct (quantity, price) {
-        return cy.xpath(this.totalPrice).contains('p#totalPrice', quantity*price);
+    getTotalPriceProduct (product) {
+        // return cy.xpath(this.totalPrice).contains('p#totalPrice', quantity*price);
+        return cy.contains(product).siblings("p#totalPrice");
     }
 
     showTotalPrice (totalPrice) {
