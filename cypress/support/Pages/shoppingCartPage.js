@@ -1,15 +1,5 @@
 export class ShoppingCartPage {
     
-    // verifyProducts () {
-    //     return cy.get('p').contains ("Buzo Negro");
-    // }
-
-    // verifyPrice () {
-    //     // cy.xpath ("//div/p[contains(text(), 'Buzo Negro')]//following-sibling::p[text()='23.76']").contains('23.76');
-    //     cy.get('p').contains('23.76');
-    //     cy.xpath ("//div/p[contains(text(), 'Medias Negras')]//following-sibling::p[text()='5.43']").contains('5.43');
-    // }
-
     constructor() {
         
         this.productName = '//*[@id="productName"]'; 
