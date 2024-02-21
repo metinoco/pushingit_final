@@ -5,7 +5,8 @@ export class ShoppingCartPage {
         this.productName = '//*[@id="productName"]'; 
         this.productPrice = '//*[@id="unitPrice"]'; 
         this.productQuantity = '//*[@id="productAmount"]'; 
-        this.totalPrice = '//*[@id="totalPrice"]'; 
+        this.totalPrice = '//*[@id="totalPrice"]';
+        this.checkoutLink = '#goCheckout';
         
     };
 
@@ -39,4 +40,8 @@ export class ShoppingCartPage {
     totalAmmount () {
         return cy.xpath('//*[@id="price"]');
     }
- }
+
+    goToCheckout () {
+        cy.get(this.checkoutLink).click();
+        }
+}

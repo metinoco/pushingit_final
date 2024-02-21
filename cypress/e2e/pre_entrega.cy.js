@@ -5,34 +5,73 @@ import { LoginPage } from "../support/Pages/loginPage";
 import { ProductsPage } from "../support/Pages/productsPage";
 import { ShoppingCartPage } from "../support/Pages/shoppingCartPage";
 
-describe ('Pre-entrega', ()=> {
+describe ('Entrega final', ()=> {
+    let token ;
+    let products;
+    const baseUrl = 'https://pushing-it.onrender.com';
     //generar una instancia de la clase loginPage
     const loginPage = new LoginPage()
     //generar una instancia de la clase productsPage
     const productsPage = new ProductsPage()
     //generar una instancia de la clase shoppingCartPage
     const shoppingCartPage = new ShoppingCartPage()
-    // let datos ;
-    let products;
-
+    
     before(() => {
         cy.fixture('products.json').then((data) => {
             products = data;   
         });
-    });
 
-    beforeEach("Pre-entrega", () => {
         cy.visit('');
-        loginPage.clickButtonIniciarSesion().dblclick();
-        loginPage.escribirUsuario(Cypress.env().usuario);
-        loginPage.escribirContraseña(Cypress.env().password);
-        loginPage.clickButtonLogIn().click();
-        loginPage.verifyUser().should('exist');
+        //Enviar una petición HTTP que registre un nuevo usuario
+        cy.request({
+            method: "POST",
+            url: `${baseUrl}/api/register`,
+            headers: {
+                "authorization": `Bearer ${token}`
+            },
+            body:
+            {
+                username: 'monshy' + Math.floor(Math.random() * 1000),
+                password: '1234567!',
+                gender:'Male',
+                year: '1986',
+                month: '6',
+                day: '16'
+            },
+        }).then(response => {
+            cy.log(response);
+            expect(response.status).to.be.equal(201);
+            expect(`${response.body.newUser.username}`).exist;
+
+            //Enviar una petición HTTP que haga login con el nuevo usuario
+            cy.request({
+                method: "POST",
+                url: `${baseUrl}/api/login`,
+                headers: {
+                    "authorization": `Bearer ${token}`,
+                },
+                body:
+                {
+                    "username": `${response.body.newUser.username}`,
+                    "password": "1234567!",
+                },
+            }).then((response) => {
+                cy.log(response);
+                window.localStorage.setItem('token', response.body.token);
+                window.localStorage.setItem('username', response.body.user.username);
+                window.localStorage.setItem('userId', response.body.user._id);
+                expect(response.status).to.equal(201);
+                expect(`${response.body.user.username}`).exist;
+                
+            });
+            cy.reload();
+            productsPage.clickButtonOnlineShop();
     });
+});
 
     it('Unico test', () => {
         
-        productsPage.clickButtonOnlineShop();
+        
         cy.wait(2000);
         
         //Agregar productos

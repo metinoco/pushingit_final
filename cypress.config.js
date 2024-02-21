@@ -7,7 +7,7 @@ module.exports = defineConfig({
     },
 
     baseUrl: "https://pushing-it.vercel.app/",
-    defaultCommandTimeout: 6000
+    defaultCommandTimeout: 5000
   },
 
   env: {
