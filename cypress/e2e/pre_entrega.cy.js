@@ -10,7 +10,6 @@ describe('Entrega final', () => {
     let products;
     let checkout;
     const baseUrl = 'https://pushing-it.onrender.com';
-    const loginPage = new LoginPage();
     const productsPage = new ProductsPage();
     const shoppingCartPage = new ShoppingCartPage();
     const checkoutPage = new CheckoutPage();
@@ -137,5 +136,5 @@ describe('Entrega final', () => {
             cy.log(response);
             expect(response.status).to.be.equal(404);
         });
-    })
+    });
 })
