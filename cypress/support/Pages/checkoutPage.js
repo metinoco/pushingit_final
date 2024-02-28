@@ -1,18 +1,18 @@
 export class CheckoutPage {
-    constructor () {
+    constructor() {
         this.firstName = '[data-cy="firstName"]';
         this.lastName = '[data-cy="lastName"]';
         this.cardNumber = '[data-cy="cardNumber"]';
         this.purchaseButton = '[data-cy="purchase"]';
     }
 
-    completeForm (name, lastName, cardNumber) {
-        cy.get(this.firstName).type (name);
+    completeForm(name, lastName, cardNumber) {
+        cy.get(this.firstName).type(name);
         cy.get(this.lastName).type(lastName);
         cy.get(this.cardNumber).type(cardNumber);
     }
 
-    goToPurchase(){ 
+    goToPurchase() {
         cy.get(this.purchaseButton).click();
     }
 }

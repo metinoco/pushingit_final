@@ -1,17 +1,16 @@
 export class ProductsPage {
-    
-    clickButtonOnlineShop () {
+
+    clickButtonOnlineShop() {
         cy.get("#onlineshoplink").click();
     }
 
-    addProducts (name) {
-        cy.get (`[name='${name}']`).click();
+    addProducts(name) {
+        cy.get(`[name='${name}']`).click();
         cy.get('#closeModal').click();
     }
 
-    goToShoppingCart () {
+    goToShoppingCart() {
         cy.get('.css-1ktw94t > [data-cy="goShoppingCart"]').click();
-    } 
-
+    }
 }
 

@@ -1,22 +1,22 @@
 export class LoginPage {
-    
-    clickButtonIniciarSesion () {
+
+    clickButtonIniciarSesion() {
         return cy.get("#registertoggle");
     }
 
-    clickButtonLogIn () {
+    clickButtonLogIn() {
         return cy.get('[data-cy="submitForm"]');
     };
 
-    verifyUser () {
-       return cy.xpath(`//h2[starts-with(@id,'user_pushingit')]`);
+    verifyUser() {
+        return cy.xpath(`//h2[starts-with(@id,'user_pushingit')]`);
     }
 
-    escribirUsuario (usuario) {
+    escribirUsuario(usuario) {
         cy.get('#user').type(usuario);
     };
 
-    escribirContraseña (contraseña) {
+    escribirContraseña(contraseña) {
         cy.get('#pass').type(contraseña);
     };
 }

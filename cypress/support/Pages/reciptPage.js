@@ -7,20 +7,20 @@ export class ReciptPage {
         this.numberCard = '[data-cy="creditCard"]';
         this.totalCost = '[data-cy="totalPrice"]';
     }
-    
-    getNameRecipt () {
+
+    getNameRecipt() {
         return cy.get(this.firstName);
     }
 
-    getReciptProduct (productName) {
-        return cy.contains ('p', productName);
+    getReciptProduct(productName) {
+        return cy.contains('p', productName);
     }
 
-    getNumberCard () {
+    getNumberCard() {
         return cy.get(this.numberCard);
     }
 
-    getMoneySpent () {
+    getMoneySpent() {
         return cy.get(this.totalCost);
     }
 }
